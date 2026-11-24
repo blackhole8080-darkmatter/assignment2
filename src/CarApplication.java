@@ -11,7 +11,7 @@ public class CarApplication {
     volvo.setY(0);
 
     saab.setX(0);
-    saab.setY(10);
+    saab.setY(100);
     
     cc.cars.add(volvo);
     cc.cars.add(saab);

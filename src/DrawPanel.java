@@ -35,10 +35,19 @@ public class DrawPanel extends JPanel {
             // You can remove the "pics" part if running outside of IntelliJ and
             // everything is in the same folder.
             // volvoImage = ImageIO.read(new File("Volvo240.jpg"));
+            System.out.println(
+            "Volvo resource: " + DrawPanel.class.getResource("pics/Volvo240.jpg")
+            );
+            System.out.println(
+            "Saab resource: " + DrawPanel.class.getResource("pics/Saab95.jpg")
+            );
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-        } catch (IOException ex)
-        {
+
+            System.out.println("Volvo loaded: " + (volvoImage != null));
+            System.out.println("Saab loaded: " + (saabImage != null));
+
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
