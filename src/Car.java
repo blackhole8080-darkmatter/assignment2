@@ -46,6 +46,18 @@ public abstract class Car implements Movable {
         return y;
     }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public Point getPosition() {
+        return new Point((int) x, (int) y);
+    }
+
     public void startEngine() {
         currentSpeed = 0.1;
     }
@@ -85,6 +97,40 @@ public abstract class Car implements Movable {
     }
 
     public abstract double speedFactor();
+
+    public void checkBounds(int frameWidth, int frameHeight) {
+        if (getX() < 0) {
+            setX(0);
+            stopEngine();
+            turnRight();
+            turnRight();
+            startEngine();
+        } 
+        
+        if (getX() > frameWidth) {
+            setX(frameWidth);
+            stopEngine();
+            turnRight();
+            turnRight();
+            startEngine();
+        }
+
+        if (getY() < 0) {
+            setY(0);
+            stopEngine();
+            turnRight();
+            turnRight();
+            startEngine();
+        } 
+        
+        if (getY() > frameHeight) {
+            setY(frameHeight);
+            stopEngine();
+            turnRight();
+            turnRight();
+            startEngine();
+        }
+    }
 
    @Override
     public void move() {
